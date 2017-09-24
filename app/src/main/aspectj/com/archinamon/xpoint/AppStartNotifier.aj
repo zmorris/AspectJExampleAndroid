@@ -1,3 +1,5 @@
+package com.archinamon.xpoint;
+
 import android.app.Application;
 import android.app.NotificationManager;
 import android.content.Context;
