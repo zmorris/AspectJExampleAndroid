@@ -3,10 +3,10 @@ package com.archinamon.example;
 import android.app.Application;
 import android.content.SharedPreferences;
 
-import com.archinamon.example.dagger.AndroidAppModule;
-import com.archinamon.example.dagger.DaggerTestComponent;
-import com.archinamon.example.dagger.MyAppScopeModule;
-import com.archinamon.example.dagger.TestComponent;
+//import com.archinamon.example.dagger.AndroidAppModule;
+//import com.archinamon.example.dagger.DaggerTestComponent;
+//import com.archinamon.example.dagger.MyAppScopeModule;
+//import com.archinamon.example.dagger.TestComponent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,7 +21,7 @@ public class MyApplication extends Application {
     public static final String LANG_KEY = "k_lang";
 
     private SharedPreferences mPreferences;
-    private TestComponent mTestComponent;
+//    private TestComponent mTestComponent;
 
     @Override
     public void onCreate() {
@@ -29,18 +29,18 @@ public class MyApplication extends Application {
 
         mPreferences = getSharedPreferences(APPLICATION_ID, MODE_PRIVATE);
 
-        mTestComponent = DaggerTestComponent.builder()
-                                            .androidAppModule(new AndroidAppModule())
-                                            .myAppScopeModule(new MyAppScopeModule())
-                                            .build();
-        AndroidAppModule sharedAppModule = new AndroidAppModule();
+//        mTestComponent = DaggerTestComponent.builder()
+//                                            .androidAppModule(new AndroidAppModule())
+//                                            .myAppScopeModule(new MyAppScopeModule())
+//                                            .build();
+//        AndroidAppModule sharedAppModule = new AndroidAppModule();
     }
 
     public SharedPreferences getPreferences() {
         return mPreferences;
     }
 
-    protected TestComponent getTestCpmponent() {
-        return mTestComponent;
-    }
+//    protected TestComponent getTestCpmponent() {
+//        return mTestComponent;
+//    }
 }

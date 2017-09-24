@@ -8,12 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.archinamon.kotlin.InfoActivity;
-import org.androidannotations.annotations.EActivity;
+//import com.archinamon.kotlin.InfoActivity;
+//import org.androidannotations.annotations.EActivity;
 
 import java.util.Locale;
 
-@EActivity
+//@EActivity
 public class MainActivity extends AppCompatActivity {
 
     private TextView mHelloField;
@@ -77,8 +77,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onThirdButtonClicked(View view) {
-        startActivity(new Intent(this, InfoActivity.class));
-        toastFromKotlin();
+//        startActivity(new Intent(this, InfoActivity.class));
+//        toastFromKotlin();
     }
 
     private void toastFromJava() {
@@ -86,5 +86,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void toastFromGroovy() {}
-    private void toastFromKotlin() {}
+//    private void toastFromKotlin() {}
 }
