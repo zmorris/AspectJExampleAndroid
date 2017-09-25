@@ -1,46 +1,15 @@
-buildscript {
-    repositories {
-        jcenter()
-        maven { url "https://jitpack.io" }
-    }
-    dependencies {
-        classpath 'com.github.Archinamon:GradleAspectJ-Android:3.0.3'
-        classpath 'me.tatarka:gradle-retrolambda:3.3.1'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
-    }
-}
-
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'com.archinamon.aspectj'
-
-aspectj {
-}
-
-retrolambda {
-    defaultMethods true
-}
-
-apt {
-    arguments {
-        resourcePackageName android.defaultConfig.applicationId
-        androidManifestFile variant.outputs[0].processResources.manifestFile
-    }
-}
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25'
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         applicationId "com.archinamon.example"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -49,12 +18,33 @@ android {
     }
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.squareup.picasso:picasso:2.1.1'
     compile 'com.android.support:design:25.0.0'
 }
+
+///// GradleAspectJ-Android /////
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.3.1'
+        classpath 'com.github.Archinamon:GradleAspectJ-Android:3.0.3'
+    }
+}
+
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.archinamon.aspectj'
+
+retrolambda {
+    defaultMethods true
+}
+
+aspectj {
+}
+
+/////////////////////////////////
